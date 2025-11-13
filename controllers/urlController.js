@@ -1,4 +1,4 @@
-const urlModel = require('../models/urlModels.js');
+const urlModel = require('../models/urlModel.js');
 const { customAlphabet } = require('nanoid');
 const { isValidUrl, isValidShortCode } = require('../validator/validation.js');
 const redisClient = require( '../redisConfig.js');

@@ -48,6 +48,13 @@ urlModel stores information about the URLs, including their long and shortened v
 }
 ````
 
+## Postman Collection
+
+You can explore and test all the API endpoints of this URL Shortener application using Postman.
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://bit.ly/4oGw6Qy)
+
+
 ## Running URL Shortener Application
 
 To run the `urlShortener` application, follow these steps:
