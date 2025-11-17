@@ -1,4 +1,4 @@
-# URL Shortener Application
+# URL Shortener API
 
 A URL Shortener application is a Node.js-based system developed using the Express.js framework, with MongoDB as the chosen database.
 
