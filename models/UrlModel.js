@@ -7,7 +7,8 @@ const urlSchema = new mongoose.Schema({
     shortCode:{
         type:String,
         required:true,
-        unique:true
+        unique:true,
+        index:true
     },
     urlClickcount:{
         type:Number,

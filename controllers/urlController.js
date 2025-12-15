@@ -64,7 +64,7 @@ const redirectUrl = async function(req, res) {
         // If not in Redis, fetch from MongoDB and update click count
         const isValidshortUrl = await urlModel.findOneAndUpdate({ shortCode: shortCode },
             { $inc: { urlClickcount: 1 } },
-            { new: true }).select('longURL urlClickcount')
+            { new: true }).select('longURL urlClickcount');
 
         // Store in redis database for future access
         const redisData = {

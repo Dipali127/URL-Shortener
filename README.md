@@ -4,7 +4,16 @@ A URL Shortener application is a Node.js-based system developed using the Expres
 
 A URL shortener application typically involves creating a service that takes long URLs and converts them into shorter, more manageable links. These shortened links redirect users to the original long URL when clicked. The primary purpose of a URL shortener is to make links more concise and easier to share, particularly on platforms like social media where character limits may be a concern. Additionally, the application tracks the number of hits on each shortened URL with a click counter.
 
-## url Model
+## Features
+
+- URL shortening with unique short codes.
+- Redirection from short URL to the original long URL.
+- Click count tracking for each short URL.
+- Redis caching for faster URL lookup.
+- Rate limiting to prevent excessive requests and protect the server from overload.
+
+
+## URL Model
 urlModel stores information about the URLs, including their long and shortened versions, associated unique identifiers (short codes), and tracking the number of clicks.
 
 * **Fields:**
@@ -15,8 +24,8 @@ urlModel stores information about the URLs, including their long and shortened v
 
   `urlClickcount`: `Number` (Represents the total number of clicks on the shortened URL. default value is 0).
 
-## Endpoints
 
+## Endpoints
 ### URL
 
 - **Generate a short URL**
