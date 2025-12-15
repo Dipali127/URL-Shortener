@@ -33,20 +33,16 @@ urlModel stores information about the URLs, including their long and shortened v
   - **Endpoint:** `POST /generateShorturl`
   - **Description:** Generates a short URL from the provided long URL and saves it in the database with the fields `longURL`, `shortCode`, and `urlClickcount`. Returns the shortened URL.
 
-- **Redirect to the long URL associated with a short URL**
+- **Redirect the Short URL to their original Long URL**
 
   - **Endpoint:** `GET /:shortCode`
   - **Description:** Redirects the user to the long URL associated with the provided short URL. Increments the click count for the short URL.
 
-- **Track the total number of clicks on a short URL**
+- **Track the total number of clicks on the generated short URL**
 
   - **Endpoint:** `GET /clickCount/:shortCode`
   - **Description:** Returns the total number of clicks for the provided short URL.
 
-- **Track clicks based on the entered short URL**
-
-  - **Endpoint:** `POST /trackClicks`
-  - **Description:** Accepts a short URL in the request body and returns the total number of clicks associated with it.
 
 - **Examples:**
 ````json
