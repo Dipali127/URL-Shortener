@@ -1,11 +1,13 @@
 # URL Shortener API
 
-A backend URL Shortener application built with Node.js and Express.js. It converts long URLs into shorter, more manageable links, redirects users to the original long URL when the short URL is accessed, and tracks the number of clicks on each shortened URL.
+A backend URL Shortener application built with Node.js and Express.js. It converts long URLs into shorter, more manageable links, redirects users to the original URL when the short URL is accessed, and tracks the number of clicks on each shortened URL.
 
-To make the application production-ready, Redis caching is used for faster URL lookups and rate limiting is implemented to prevent server overload and ensure fair usage.
+To make the application production-ready, Redis is used to cache frequently accessed URLs for faster lookups and rate limiting is implemented to prevent server overload and maintain stability under high traffic.
 
 ## 💡 Why I Built This
-I built this project to understand how real-world URL shortener services like Bitly and TinyURL work internally. Key learning areas included Redis caching strategies, rate limiting, duplicate URL detection, and production deployment using Render and Redis Cloud.
+I built this project to understand how real-world URL shortener services like Bitly and TinyURL work internally. 
+Key learning areas included Redis caching strategies, rate limiting, duplicate URL detection, and production 
+deployment using Render and Redis Cloud.
 
 ## 🚀 Live API
 
