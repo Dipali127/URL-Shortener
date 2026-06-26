@@ -33,7 +33,11 @@ const createShortURL = async function (req, res) {
             return res.status(400).send({ status: false, message: "Invalid custom shortCode format." });
         }
 
-        // Check if customShortcode already exists
+        // Generate shortCode of size 8 by using base 62 characters(0-9,A-Z,a-z)
+        const alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        const nanoid = customAlphabet(alphabet, 8)
+        
+        let newShortCode;
         if (customShortcode) {
             const isExistCode = await urlModel.findOne({ shortCode: customShortcode });
             if (isExistCode) {
@@ -41,14 +45,18 @@ const createShortURL = async function (req, res) {
                     status: false, message: "Custom shortCode already exists. Please use different one."
                 });
             }
+
+            newShortCode = customShortcode
+
+        } else {
+            let isExistShortCode = true;
+            while (isExistShortCode) {
+                const generateShortCode = nanoid()
+                isExistShortCode = await urlModel.findOne({ shortCode: generateShortCode });
+                newShortCode = generateShortCode;
+            }
         }
 
-        // Generate shortCode of size 8 by using base 62 characters(0-9,A-Z,a-z)
-        const alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        const nanoid = customAlphabet(alphabet, 8)
-        const generateShortCode = nanoid()
-
-        const newShortCode = customShortcode ? customShortcode : generateShortCode;
         // Append baseURL with the unique generated shortCode to generate shortURL
         const shortURL = `${process.env.BASE_URL}/${newShortCode}`;
 
